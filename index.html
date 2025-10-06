@@ -12,7 +12,7 @@
       color: #4a3c2a;
     }
 
-    /* NAVBAR */
+    /* HEADER / NAVBAR */
     header {
       background-color: #f7d794;
       color: #4a3c2a;
@@ -22,14 +22,17 @@
       padding: 15px 40px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
+
     header .logo {
       display: flex;
       align-items: center;
       gap: 10px;
     }
+
     header .logo img {
       width: 50px;
     }
+
     nav ul {
       list-style: none;
       display: flex;
@@ -37,17 +40,19 @@
       margin: 0;
       padding: 0;
     }
+
     nav a {
       text-decoration: none;
       color: #4a3c2a;
       font-weight: 600;
       transition: 0.3s;
     }
+
     nav a:hover {
       color: #d35400;
     }
 
-    /* HERO CON CARRUSEL DE FONDO */
+    /* HERO con tus imágenes locales */
     .hero {
       position: relative;
       width: 100%;
@@ -57,37 +62,26 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      color: #fff8f0;
+      color: white;
     }
 
-    /* Fondo animado */
-    .hero::before {
-      content: "";
+    .hero img {
       position: absolute;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      animation: fondo 15s infinite;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
       z-index: 0;
       filter: brightness(0.6);
     }
 
-    @keyframes fondo {
-      0%, 33% {
-        background-image: url('images/baguette-bg.jpg');
-      }
-      34%, 66% {
-        background-image: url('images/baguette-bg2.jpg');
-      }
-      67%, 100% {
-        background-image: url('images/baguette-bg3.jpg');
-      }
+    .hero img.active {
+      opacity: 1;
     }
 
-    /* Texto encima */
     .hero-content {
       position: relative;
       z-index: 1;
@@ -173,7 +167,12 @@
     </nav>
   </header>
 
+  <!-- Carrusel -->
   <div class="hero">
+    <img src="images/slider1.jpg" class="active" alt="Baguette 1">
+    <img src="images/slider2.jpg" alt="Baguette 2">
+    <img src="images/slider3.jpg" alt="Baguette 3">
+
     <div class="hero-content">
       <h1>Bienvenido a la Baguettería</h1>
       <p>Descubre el sabor del pan recién horneado, hecho con amor y tradición francesa. 🥖✨</p>
@@ -184,7 +183,7 @@
     <h2>Nuestras Especialidades</h2>
     <div class="cards">
       <div class="card">
-        <img src="2022-02_Baguette Española_1.png" alt="Baguette clásica">
+        <img src="2022-02_Baguette Española_1.png" alt="Baguette clásica">
         <h3>Baguette Clásica</h3>
         <p>Hecha con masa madre y horneada cada mañana.</p>
       </div>
@@ -196,7 +195,7 @@
       <div class="card">
         <img src="RELLENA-removebg-preview.png" alt="Baguette rellena">
         <h3>Baguette Rellena</h3>
-        <p>Sabores irresistibles: jamón y queso, pollo, o vegetariana.</p>
+        <p>Sabores irresistibles: jamón y queso, pollo o vegetariana.</p>
       </div>
     </div>
   </section>
@@ -216,6 +215,18 @@
     <p>© 2025 Baguettería Artesanal | Hecho con 🥖 y 💛</p>
     <p><a href="contacto.html">Contáctanos</a> | <a href="#">Política de Privacidad</a></p>
   </footer>
+
+  <!-- Script del carrusel -->
+  <script>
+    const images = document.querySelectorAll('.hero img');
+    let index = 0;
+
+    setInterval(() => {
+      images[index].classList.remove('active');
+      index = (index + 1) % images.length;
+      images[index].classList.add('active');
+    }, 5000); 
+  </script>
 
 </body>
 </html>
