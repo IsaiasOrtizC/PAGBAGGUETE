@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout - Baguettería Artesanal</title>
+  <title>Pago - Baguettería Artesanal</title>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -12,7 +12,6 @@
       color: #4a3c2a;
     }
 
-    /* HEADER / NAVBAR */
     header {
       background-color: #f7d794;
       color: #4a3c2a;
@@ -52,9 +51,8 @@
       color: #d35400;
     }
 
-    /* SECCIÓN CHECKOUT */
     section {
-      max-width: 800px;
+      max-width: 600px;
       margin: 40px auto;
       padding: 20px;
       background-color: #fff;
@@ -67,40 +65,22 @@
       margin-bottom: 30px;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 20px;
-    }
-
-    th, td {
-      padding: 12px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-
-    th {
-      background-color: #f7d794;
-    }
-
-    .total {
-      text-align: right;
-      font-size: 1.3em;
-      margin-bottom: 20px;
-    }
-
     form {
       display: flex;
       flex-direction: column;
       gap: 15px;
     }
 
-    input, textarea {
+    label {
+      font-weight: bold;
+    }
+
+    input, select {
       padding: 10px;
       border-radius: 8px;
       border: 1px solid #ccc;
-      font-size: 1em;
       width: 100%;
+      box-sizing: border-box;
     }
 
     .pay-btn {
@@ -111,7 +91,6 @@
       border: none;
       border-radius: 20px;
       cursor: pointer;
-      text-align: center;
       font-size: 1em;
       transition: 0.3s;
     }
@@ -121,7 +100,14 @@
       color: #4a3c2a;
     }
 
-    /* FOOTER */
+    .confirmation {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: green;
+      font-weight: bold;
+    }
+
     footer {
       background-color: #4a3c2a;
       color: #fff8f0;
@@ -154,55 +140,45 @@
 </header>
 
 <section>
-  <h2>Resumen de Compra</h2>
+  <h2>Pasarela de Pago</h2>
+  <form id="payment-form">
+    <label for="name">Nombre completo</label>
+    <input type="text" id="name" required placeholder="Juan Pérez">
 
-  <table>
-    <thead>
-      <tr>
-        <th>Producto</th>
-        <th>Cantidad</th>
-        <th>Precio Unitario</th>
-        <th>Subtotal</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Baguette Clásica</td>
-        <td>1</td>
-        <td>CLP 2.500</td>
-        <td>CLP 2.500</td>
-      </tr>
-      <tr>
-        <td>Baguette Integral</td>
-        <td>1</td>
-        <td>CLP 3.000</td>
-        <td>CLP 3.000</td>
-      </tr>
-      <tr>
-        <td>Baguette Rellena</td>
-        <td>1</td>
-        <td>CLP 3.500</td>
-        <td>CLP 3.500</td>
-      </tr>
-    </tbody>
-  </table>
+    <label for="card">Número de tarjeta</label>
+    <input type="text" id="card" required placeholder="1111 2222 3333 4444" maxlength="19">
 
-  <div class="total">Total: CLP 9.000</div>
+    <label for="expiry">Fecha de expiración</label>
+    <input type="month" id="expiry" required>
 
-  <h2>Datos de envío</h2>
-  <form action="us06.html">
-    <input type="text" placeholder="Nombre completo" required>
-    <input type="email" placeholder="Correo electrónico" required>
-    <input type="text" placeholder="Dirección de envío" required>
-    <textarea placeholder="Notas adicionales (opcional)"></textarea>
-    <button type="submit" class="pay-btn">Finalizar Compra</button>
+    <label for="cvv">CVV</label>
+    <input type="text" id="cvv" required maxlength="4">
+
+    <label for="total">Total a pagar</label>
+    <input type="text" id="total" value="CLP 9.000" readonly>
+
+    <button type="submit" class="pay-btn">Pagar</button>
   </form>
+
+  <div class="confirmation" id="confirmation"></div>
 </section>
 
 <footer>
   <p>© 2025 Baguettería Artesanal | Hecho con 🥖 y 💛</p>
   <p><a href="contacto.html">Contáctanos</a> | <a href="#">Política de Privacidad</a></p>
 </footer>
+
+<script>
+  const form = document.getElementById('payment-form');
+  const confirmation = document.getElementById('confirmation');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    // Simulación de pago exitoso
+    confirmation.textContent = "¡Pago realizado con éxito! Gracias por tu compra 🥖✨";
+    form.reset();
+  });
+</script>
 
 </body>
 </html>
