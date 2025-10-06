@@ -5,28 +5,120 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catálogo - Baguettería Artesanal</title>
   <style>
-    body { font-family:'Poppins', sans-serif; margin:0; background:#fff8f0; color:#4a3c2a;}
-    header {background:#f7d794; display:flex; justify-content:space-between; align-items:center; padding:15px 40px; box-shadow:0 4px 8px rgba(0,0,0,0.1);}
-    header .logo {display:flex; align-items:center; gap:10px;}
-    header .logo img {width:50px;}
-    nav ul {list-style:none; display:flex; gap:20px; margin:0; padding:0;}
-    nav a {text-decoration:none; color:#4a3c2a; font-weight:600; transition:0.3s;}
-    nav a:hover {color:#d35400;}
-    section {padding:40px 20px; max-width:1000px; margin:auto;}
-    h2 {text-align:center; margin-bottom:30px;}
-    .cards {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px;}
-    .card {background:#fff; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:20px; text-align:center;}
-    .card img {width:100%; border-radius:12px;}
-    .btn {padding:10px 20px; background:#d35400; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold; margin-top:10px;}
-    .btn:hover {background:#f7d794; color:#4a3c2a;}
-    footer {background:#4a3c2a; color:#fff8f0; text-align:center; padding:20px; margin-top:50px;}
-    footer a {color:#f7d794; text-decoration:none;}
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #fff8f0;
+      color: #4a3c2a;
+    }
+
+    header {
+      background-color: #f7d794;
+      color: #4a3c2a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    header .logo img {
+      width: 50px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #4a3c2a;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #d35400;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    .add-btn {
+      padding: 10px 15px;
+      background-color: #d35400;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .add-btn:hover {
+      background-color: #f7d794;
+      color: #4a3c2a;
+    }
+
+    footer {
+      background-color: #4a3c2a;
+      color: #fff8f0;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+
+    footer a {
+      color: #f7d794;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="logo"><img src="LOGO-removebg-preview.png" alt="Logo Baguettería"><h2>Baguettería</h2></div>
+  <div class="logo">
+    <img src="LOGO-removebg-preview.png" alt="Logo Baguettería">
+    <h2>Baguettería</h2>
+  </div>
   <nav>
     <ul>
       <li><a href="index.html">Inicio</a></li>
@@ -44,25 +136,27 @@
   <h2>Catálogo de Baguettes</h2>
   <div class="cards">
     <div class="card">
-      <img src="2022-02_Baguette Española_1.png" alt="Baguette clásica">
+      <img src="2022-02_Baguette Española_1.png" alt="Baguette Clásica">
       <h3>Baguette Clásica</h3>
-      <p>Hecha con masa madre y horneada cada mañana.</p>
+      <p>Masa madre, horneada cada mañana.</p>
       <p>Precio: CLP 2.500</p>
-      <button class="btn" onclick="window.location.href='us04.html'">Agregar al Carrito</button>
+      <button class="add-btn" onclick="alert('Baguette Clásica añadida al carrito')">Añadir al carrito</button>
     </div>
+
     <div class="card">
-      <img src="INTEGRAL.png" alt="Baguette integral">
-      <h3>Integral de Trigo</h3>
+      <img src="INTEGRAL.png" alt="Baguette Integral">
+      <h3>Baguette Integral</h3>
       <p>Una opción saludable con el mismo sabor artesanal.</p>
       <p>Precio: CLP 3.000</p>
-      <button class="btn" onclick="window.location.href='us04.html'">Agregar al Carrito</button>
+      <button class="add-btn" onclick="alert('Baguette Integral añadida al carrito')">Añadir al carrito</button>
     </div>
+
     <div class="card">
-      <img src="RELLENA-removebg-preview.png" alt="Baguette rellena">
+      <img src="RELLENA-removebg-preview.png" alt="Baguette Rellena">
       <h3>Baguette Rellena</h3>
       <p>Sabores irresistibles: jamón y queso, pollo o vegetariana.</p>
       <p>Precio: CLP 3.500</p>
-      <button class="btn" onclick="window.location.href='us04.html'">Agregar al Carrito</button>
+      <button class="add-btn" onclick="alert('Baguette Rellena añadida al carrito')">Añadir al carrito</button>
     </div>
   </div>
 </section>
