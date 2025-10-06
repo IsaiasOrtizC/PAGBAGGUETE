@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carrito de Compras - Baguettería Artesanal</title>
+  <title>Carrito - Baguettería Artesanal</title>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -52,11 +52,14 @@
       color: #d35400;
     }
 
-    /* SECCIÓN CARRITO */
+    /* CARRITO */
     section {
-      padding: 40px 20px;
       max-width: 900px;
-      margin: auto;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     h2 {
@@ -64,70 +67,44 @@
       margin-bottom: 30px;
     }
 
-    .carrito {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
     }
 
-    .item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      padding: 15px 20px;
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
     }
 
-    .item img {
-      width: 80px;
-      border-radius: 8px;
+    th {
+      background-color: #f7d794;
     }
 
-    .item-info {
-      flex: 1;
-      margin-left: 20px;
-    }
-
-    .item-info h3 {
-      margin: 0;
-    }
-
-    .item-info p {
-      margin: 5px 0;
-    }
-
-    .item-qty input {
-      width: 50px;
-      padding: 5px;
-      text-align: center;
-    }
-
-    .item-total {
-      font-weight: bold;
-    }
-
-    .total-carrito {
+    .total {
       text-align: right;
-      font-size: 1.5em;
-      margin-top: 20px;
+      font-size: 1.3em;
+      margin-bottom: 20px;
     }
 
-    .checkout-btn {
+    .pay-btn {
       display: block;
-      margin: 20px auto 0 auto;
-      padding: 12px 25px;
+      width: 100%;
+      padding: 15px;
       background-color: #d35400;
       color: white;
+      font-weight: bold;
       border: none;
       border-radius: 20px;
-      font-weight: bold;
       cursor: pointer;
+      text-align: center;
+      text-decoration: none;
       transition: 0.3s;
     }
 
-    .checkout-btn:hover {
+    .pay-btn:hover {
       background-color: #f7d794;
       color: #4a3c2a;
     }
@@ -146,89 +123,99 @@
       text-decoration: none;
     }
 
+    .qty-input {
+      width: 50px;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo">
-      <img src="LOGO-removebg-preview.png" alt="Logo Baguettería">
-      <h2>Baguettería</h2>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="us01.html">Catálogo</a></li>
-        <li><a href="us02.html">Filtrar</a></li>
-        <li><a href="us03.html">Detalle</a></li>
-        <li><a href="us04.html">Carrito</a></li>
-        <li><a href="us07.html">Panel Operativo</a></li>
-        <li><a href="us10.html">Promociones</a></li>
-        <li><a href="us11.html">Reseñas</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+  <div class="logo">
+    <img src="LOGO-removebg-preview.png" alt="Logo Baguettería">
+    <h2>Baguettería</h2>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="us01.html">Catálogo</a></li>
+      <li><a href="us04.html">Carrito</a></li>
+      <li><a href="us05.html">Checkout</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <section>
-    <h2>Tu Carrito de Compras</h2>
-    <div class="carrito" id="carrito">
-      <div class="item">
-        <img src="2022-02_Baguette Española_1.png" alt="Baguette Clásica">
-        <div class="item-info">
-          <h3>Baguette Clásica</h3>
-          <p>Precio: $2.50</p>
-        </div>
-        <div class="item-qty">
-          <input type="number" value="1" min="1">
-        </div>
-        <div class="item-total">$2.50</div>
-      </div>
+<section>
+  <h2>Tu Carrito</h2>
 
-      <div class="item">
-        <img src="INTEGRAL.png" alt="Baguette Integral">
-        <div class="item-info">
-          <h3>Integral de Trigo</h3>
-          <p>Precio: $3.00</p>
-        </div>
-        <div class="item-qty">
-          <input type="number" value="2" min="1">
-        </div>
-        <div class="item-total">$6.00</div>
-      </div>
-    </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio Unitario</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody id="cart-items">
+      <tr>
+        <td>Baguette Clásica</td>
+        <td><input type="number" class="qty-input" value="1" min="1"></td>
+        <td>$5.00</td>
+        <td>$5.00</td>
+      </tr>
+      <tr>
+        <td>Baguette Integral</td>
+        <td><input type="number" class="qty-input" value="1" min="1"></td>
+        <td>$6.00</td>
+        <td>$6.00</td>
+      </tr>
+      <tr>
+        <td>Baguette Rellena</td>
+        <td><input type="number" class="qty-input" value="1" min="1"></td>
+        <td>$7.00</td>
+        <td>$7.00</td>
+      </tr>
+    </tbody>
+  </table>
 
-    <div class="total-carrito">
-      Total: $8.50
-    </div>
+  <div class="total" id="total">Total: $18.00</div>
 
-    <button class="checkout-btn">Finalizar Compra</button>
-  </section>
+  <!-- Botón Finalizar Compra -->
+  <a href="us05.html" class="pay-btn">Finalizar Compra</a>
+</section>
 
-  <footer>
-    <p>© 2025 Baguettería Artesanal | Hecho con 🥖 y 💛</p>
-    <p><a href="contacto.html">Contáctanos</a> | <a href="#">Política de Privacidad</a></p>
-  </footer>
+<footer>
+  <p>© 2025 Baguettería Artesanal | Hecho con 🥖 y 💛</p>
+  <p><a href="contacto.html">Contáctanos</a> | <a href="#">Política de Privacidad</a></p>
+</footer>
 
-  <script>
-    // Actualiza el total cuando cambie la cantidad
-    const carrito = document.getElementById('carrito');
-    const totalCarrito = document.querySelector('.total-carrito');
+<script>
+  const qtyInputs = document.querySelectorAll('.qty-input');
+  const totalEl = document.getElementById('total');
 
-    function actualizarTotal() {
-      let total = 0;
-      const items = carrito.querySelectorAll('.item');
-      items.forEach(item => {
-        const precio = parseFloat(item.querySelector('.item-info p').textContent.replace('Precio: $',''));
-        const cantidad = parseInt(item.querySelector('input').value);
-        const totalItem = precio * cantidad;
-        item.querySelector('.item-total').textContent = '$' + totalItem.toFixed(2);
-        total += totalItem;
-      });
-      totalCarrito.textContent = 'Total: $' + total.toFixed(2);
-    }
+  function actualizarTotal() {
+    let total = 0;
+    const rows = document.querySelectorAll('#cart-items tr');
+    rows.forEach((row, i) => {
+      const qty = parseInt(qtyInputs[i].value);
+      const price = parseFloat(row.cells[2].textContent.replace('$',''));
+      row.cells[3].textContent = '$' + (qty * price).toFixed(2);
+      total += qty * price;
+    });
+    totalEl.textContent = 'Total: $' + total.toFixed(2);
+  }
 
-    carrito.addEventListener('input', actualizarTotal);
-  </script>
+  qtyInputs.forEach(input => {
+    input.addEventListener('input', actualizarTotal);
+  });
+
+  actualizarTotal();
+</script>
 
 </body>
 </html>
