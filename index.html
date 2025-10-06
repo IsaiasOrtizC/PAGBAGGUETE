@@ -3,39 +3,168 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Baguettería - Inicio</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Baguettería Artesanal</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #fff8f0;
+      color: #4a3c2a;
+    }
+    header {
+      background-color: #f7d794;
+      color: #4a3c2a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    header .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    header .logo img {
+      width: 50px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    nav a {
+      text-decoration: none;
+      color: #4a3c2a;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #d35400;
+    }
+    .hero {
+      background: url('images/baguette-bg.jpg') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+      background-blend-mode: multiply;
+      background-color: rgba(0,0,0,0.3);
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin: auto;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    /* ======== Footer ======== */
+    footer {
+      background-color: #4a3c2a;
+      color: #fff8f0;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+
+    footer a {
+      color: #f7d794;
+      text-decoration: none;
+    }
+  </style>
 </head>
+
 <body>
+
   <header>
-    <h1>Baguettería Online</h1>
+    <div class="logo">
+      <img src="images/logo.png" alt="Logo Baguettería">
+      <h2>Baguettería Artesanal</h2>
+    </div>
     <nav>
       <ul>
+        <li><a href="index.html">Inicio</a></li>
         <li><a href="us01.html">Catálogo</a></li>
-        <li><a href="us02.html">Filtrar Baguettes</a></li>
-        <li><a href="us03.html">Personalizar Pedido</a></li>
-        <li><a href="us04.html">Carrito de Compras</a></li>
-        <li><a href="us05.html">Confirmación de Pedido</a></li>
-        <li><a href="us06.html">Seguimiento del Pedido</a></li>
-        <li><a href="us07.html">Gestión de Inventario</a></li>
-        <li><a href="us08.html">Control de Pedidos</a></li>
-        <li><a href="us09.html">Reportes de Ventas</a></li>
-        <li><a href="us10.html">Inicio de Sesión</a></li>
-        <li><a href="us11.html">Administración de Usuarios</a></li>
+        <li><a href="us04.html">Carrito</a></li>
+        <li><a href="us07.html">Panel Operativo</a></li>
+        <li><a href="us10.html">Promociones</a></li>
+        <li><a href="us11.html">Reseñas</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <section>
-      <h2>Bienvenido a la Baguettería Online</h2>
-      <p>Explora nuestro catálogo, personaliza tus pedidos y disfruta de la mejor experiencia de compra.</p>
-      <img src="images/baguette.jpg" alt="Baguette artesanal" style="width:50%; border-radius:10px;">
-    </section>
-  </main>
+  <div class="hero">
+    <h1>Bienvenido a la Baguettería Artesanal</h1>
+    <p>Descubre el sabor del pan recién horneado, hecho con amor y tradición francesa. 🍞✨</p>
+  </div>
+
+  <section>
+    <h2>Nuestras Especialidades</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="images/baguette-classic.jpg" alt="Baguette clásica">
+        <h3>Baguette Clásica</h3>
+        <p>Hecha con masa madre y horneada cada mañana.</p>
+      </div>
+      <div class="card">
+        <img src="images/baguette-integral.jpg" alt="Baguette integral">
+        <h3>Integral de Trigo</h3>
+        <p>Una opción saludable con el mismo sabor artesanal.</p>
+      </div>
+      <div class="card">
+        <img src="images/baguette-rellena.jpg" alt="Baguette rellena">
+        <h3>Baguette Rellena</h3>
+        <p>Sabores irresistibles: jamón y queso, pollo, o vegetariana.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>¿Qué puedes hacer aquí?</h2>
+    <ul>
+      <li>🛒 <strong>Explorar baguettes</strong> y filtrar por tipo (US01–US03).</li>
+      <li>💳 <strong>Comprar fácilmente</strong> con carrito y pago seguro (US04–US06).</li>
+      <li>🚚 <strong>Ver disponibilidad</strong> y estado de tu pedido (US07–US09).</li>
+      <li>🎁 <strong>Recibir promociones</strong> y acumular puntos (US10).</li>
+      <li>⭐ <strong>Dejar reseñas</strong> y conocer la experiencia de otros clientes (US11).</li>
+    </ul>
+  </section>
 
   <footer>
-    <p>© 2025 Baguettería Online. Todos los derechos reservados.</p>
+    <p>© 2025 Baguettería Artesanal | Hecho con 🥖 y 💛</p>
+    <p><a href="contacto.html">Contáctanos</a> | <a href="#">Política de Privacidad</a></p>
   </footer>
+
 </body>
 </html>
