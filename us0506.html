@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Baguettería Artesanal</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #fff8f0;
+      color: #4a3c2a;
+    }
+
+    /* HEADER / NAVBAR */
+    header {
+      background-color: #f7d794;
+      color: #4a3c2a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    header .logo img {
+      width: 50px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #4a3c2a;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #d35400;
+    }
+
+    /* CHECKOUT FORM */
+    section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input, select {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 100%;
+    }
+
+    .total {
+      font-size: 1.3em;
+      text-align: right;
+      margin-top: 10px;
+    }
+
+    .pay-btn {
+      padding: 15px;
+      background-color: #d35400;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .pay-btn:hover {
+      background-color: #f7d794;
+      color: #4a3c2a;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #4a3c2a;
+      color: #fff8f0;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+
+    footer a {
+      color: #f7d794;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="LOGO-removebg-preview.png" alt="Logo Baguettería">
+    <h2>Baguettería</h2>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="us01.html">Catálogo</a></li>
+      <li><a href="us04.html">Carrito</a></li>
+      <li><a href="us05.html">Checkout</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section>
+  <h2>Checkout</h2>
+  <form id="checkoutForm">
+    <!-- Información de envío -->
+    <div>
+      <label for="nombre">Nombre Completo</label>
+      <input type="text" id="nombre" required placeholder="Juan Pérez">
+    </div>
+    <div>
+      <label for="direccion">Dirección de envío</label>
+      <input type="text" id="direccion" required placeholder="Calle Falsa 123, Ciudad">
+    </div>
+    <div>
+      <label for="zona">Zona de envío</label>
+      <select id="zona" required>
+        <option value="" disabled selected>Selecciona tu zona</option>
+        <option value="centro">Centro - $2.00</option>
+        <option value="norte">Norte - $3.00</option>
+        <option value="sur">Sur - $4.00</option>
+      </select>
+    </div>
+    <div>
+      <label for="horario">Horario de entrega</label>
+      <select id="horario" required>
+        <option value="" disabled selected>Selecciona un horario</option>
+        <option value="mañana">Mañana (8:00-12:00)</option>
+        <option value="tarde">Tarde (12:00-18:00)</option>
+        <option value="noche">Noche (18:00-21:00)</option>
+      </select>
+    </div>
+
+    <!-- Pago -->
+    <div>
+      <label for="metodo">Método de pago</label>
+      <select id="metodo" required>
+        <option value="" disabled selected>Selecciona un método</option>
+        <option value="tarjeta">Tarjeta de crédito/débito</option>
+        <option value="paypal">PayPal</option>
+        <option value="efectivo">Efectivo contra entrega</option>
+      </select>
+    </div>
+    <div>
+      <label for="datosPago">Datos de pago</label>
+      <input type="text" id="datosPago" placeholder="Número de tarjeta o usuario PayPal">
+    </div>
+
+    <div class="total" id="total">Total: $12.50 + envío</div>
+
+    <button class="pay-btn" type="submit">Confirmar Pedido</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2025 Baguettería Artesanal | Hecho con 🥖 y 💛</p>
+  <p><a href="contacto.html">Contáctanos</a> | <a href="#">Política de Privacidad</a></p>
+</footer>
+
+<script>
+  const form = document.getElementById('checkoutForm');
+  const zona = document.getElementById('zona');
+  const totalEl = document.getElementById('total');
+  let subtotal = 12.50; // ejemplo de subtotal de carrito
+
+  function actualizarTotal() {
+    let envio = 0;
+    if(zona.value === 'centro') envio = 2;
+    if(zona.value === 'norte') envio = 3;
+    if(zona.value === 'sur') envio = 4;
+
+    totalEl.textContent = 'Total: $' + (subtotal + envio).toFixed(2) + ' (incluye envío)';
+  }
+
+  zona.addEventListener('change', actualizarTotal);
+
+  form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    alert('Pedido confirmado. ¡Gracias por tu compra! 🥖');
+    form.reset();
+    totalEl.textContent = 'Total: $' + subtotal.toFixed(2) + ' + envío';
+  });
+</script>
+
+</body>
+</html>
