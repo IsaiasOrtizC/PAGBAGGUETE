@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle Baguette - Baguettería Artesanal</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #fff8f0;
+      color: #4a3c2a;
+    }
+
+    /* HEADER / NAVBAR */
+    header {
+      background-color: #f7d794;
+      color: #4a3c2a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    header .logo img {
+      width: 50px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #4a3c2a;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #d35400;
+    }
+
+    /* SECCIONES */
+    section {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .detalle-baguette {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .detalle-baguette img {
+      width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .detalle-info {
+      max-width: 400px;
+    }
+
+    .detalle-info h3 {
+      margin-top: 0;
+    }
+
+    .detalle-info p {
+      line-height: 1.6;
+    }
+
+    .detalle-info ul {
+      list-style: disc inside;
+      padding-left: 0;
+    }
+
+    .detalle-info button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      background-color: #d35400;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .detalle-info button:hover {
+      background-color: #f7d794;
+      color: #4a3c2a;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #4a3c2a;
+      color: #fff8f0;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+
+    footer a {
+      color: #f7d794;
+      text-decoration: none;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="LOGO-removebg-preview.png" alt="Logo Baguettería">
+      <h2>Baguettería</h2>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="us01.html">Catálogo</a></li>
+        <li><a href="us02.html">Filtrar</a></li>
+        <li><a href="us03.html">Detalle</a></li>
+        <li><a href="us04.html">Carrito</a></li>
+        <li><a href="us07.html">Panel Operativo</a></li>
+        <li><a href="us10.html">Promociones</a></li>
+        <li><a href="us11.html">Reseñas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Detalle del Producto</h2>
+    <div class="detalle-baguette">
+      <img src="2022-02_Baguette Española_1.png" alt="Baguette Clásica">
+
+      <div class="detalle-info">
+        <h3>Baguette Clásica</h3>
+        <p>Hecha con masa madre, horneada cada mañana, con corteza crujiente y miga suave.</p>
+
+        <p><strong>Ingredientes:</strong></p>
+        <ul>
+          <li>Harina de trigo</li>
+          <li>Agua</li>
+          <li>Levadura</li>
+          <li>Sal</li>
+        </ul>
+
+        <p><strong>Tamaño:</strong> Mediana</p>
+        <p><strong>Precio:</strong> $2.50</p>
+
+        <button>Añadir al carrito</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Baguettería Artesanal | Hecho con 🥖 y 💛</p>
+    <p><a href="contacto.html">Contáctanos</a> | <a href="#">Política de Privacidad</a></p>
+  </footer>
+
+</body>
+</html>
