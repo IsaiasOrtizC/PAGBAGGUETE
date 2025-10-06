@@ -101,6 +101,24 @@
       color: #f7d794;
     }
 
+    /* BOTÓN EXPLORAR CATÁLOGO */
+    .hero-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 30px;
+      background-color: #d35400;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+
+    .hero-button:hover {
+      background-color: #f7d794;
+      color: #4a3c2a;
+    }
+
     /* SECCIONES */
     section {
       padding: 40px 20px;
@@ -159,6 +177,7 @@
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="us01.html">Catálogo</a></li>
+        <li><a href="us02.html">Filtrar</a></li>
         <li><a href="us04.html">Carrito</a></li>
         <li><a href="us07.html">Panel Operativo</a></li>
         <li><a href="us10.html">Promociones</a></li>
@@ -167,6 +186,7 @@
     </nav>
   </header>
 
+  <!-- CARRUSEL -->
   <div class="hero">
     <img src="francsua.jpg" class="active" alt="Baguette 1">
     <img src="nrmal.jpg" alt="Baguette 2">
@@ -175,6 +195,7 @@
     <div class="hero-content">
       <h1>Bienvenido a la Baguettería</h1>
       <p>Descubre el sabor del pan recién horneado, hecho con amor y tradición francesa. 🥖✨</p>
+      <a href="us02.html" class="hero-button">Explorar Catálogo</a>
     </div>
   </div>
 
@@ -215,7 +236,7 @@
     <p><a href="contacto.html">Contáctanos</a> | <a href="#">Política de Privacidad</a></p>
   </footer>
 
-  <!-- Script del carrusel -->
+  <!-- SCRIPT CARRUSEL -->
   <script>
     const images = document.querySelectorAll('.hero img');
     let index = 0;
