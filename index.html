@@ -11,6 +11,8 @@
       background-color: #fff8f0;
       color: #4a3c2a;
     }
+
+    /* NAVBAR */
     header {
       background-color: #f7d794;
       color: #4a3c2a;
@@ -44,32 +46,69 @@
     nav a:hover {
       color: #d35400;
     }
+
+    /* HERO CON CARRUSEL */
     .hero {
-      background: url('images/baguette-bg.jpg') center/cover no-repeat;
+      position: relative;
+      width: 100%;
+      height: 450px;
+      overflow: hidden;
       color: white;
       text-align: center;
-      padding: 120px 20px;
-      background-blend-mode: multiply;
-      background-color: rgba(0,0,0,0.3);
     }
-    .hero h1 {
+
+    .slider {
+      display: flex;
+      width: 300%;
+      height: 100%;
+      animation: slide 15s infinite;
+    }
+
+    .slide {
+      width: 100%;
+      flex-shrink: 0;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-blend-mode: multiply;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    .slide h1 {
       font-size: 3em;
       margin-bottom: 10px;
+      color: #fff8f0;
     }
-    .hero p {
+
+    .slide p {
       font-size: 1.2em;
       max-width: 600px;
       margin: auto;
+      color: #f7d794;
     }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      33% { transform: translateX(-100%); }
+      66% { transform: translateX(-200%); }
+      100% { transform: translateX(0); }
+    }
+
+    /* SECCIONES */
     section {
       padding: 40px 20px;
       max-width: 1000px;
       margin: auto;
     }
+
     h2 {
       text-align: center;
       margin-bottom: 30px;
     }
+
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -89,6 +128,7 @@
       border-radius: 12px;
     }
 
+    /* FOOTER */
     footer {
       background-color: #4a3c2a;
       color: #fff8f0;
@@ -124,8 +164,20 @@
   </header>
 
   <div class="hero">
-    <h1>Bienvenido a la Baguettería</h1>
-    <p>Descubre el sabor del pan recién horneado, hecho con amor y tradición francesa. 🍞✨</p>
+    <div class="slider">
+      <div class="slide" style="background-image: url('images/baguette-bg.jpg');">
+        <h1>Bienvenido a la Baguettería</h1>
+        <p>Descubre el sabor del pan recién horneado, hecho con amor y tradición francesa. 🥖✨</p>
+      </div>
+      <div class="slide" style="background-image: url('images/baguette-bg2.jpg');">
+        <h1>Pan artesanal cada día</h1>
+        <p>Elaborado con masa madre y técnicas francesas auténticas.</p>
+      </div>
+      <div class="slide" style="background-image: url('images/baguette-bg3.jpg');">
+        <h1>Disfruta cada mordisco</h1>
+        <p>Porque una buena baguette es más que pan: es una experiencia. ❤️</p>
+      </div>
+    </div>
   </div>
 
   <section>
