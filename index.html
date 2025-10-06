@@ -22,37 +22,13 @@
       padding: 15px 40px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
+    header .logo { display: flex; align-items: center; gap: 10px; }
+    header .logo img { width: 50px; }
+    nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+    nav a { text-decoration: none; color: #4a3c2a; font-weight: 600; transition: 0.3s; }
+    nav a:hover { color: #d35400; }
 
-    header .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    header .logo img {
-      width: 50px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #4a3c2a;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #d35400;
-    }
-
-    /* HERO con tus imágenes locales */
+    /* HERO */
     .hero {
       position: relative;
       width: 100%;
@@ -64,7 +40,6 @@
       text-align: center;
       color: white;
     }
-
     .hero img {
       position: absolute;
       top: 0;
@@ -77,48 +52,15 @@
       z-index: 0;
       filter: brightness(0.6);
     }
-
-    .hero img.active {
-      opacity: 1;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-content h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
-    }
-
-    .hero-content p {
-      font-size: 1.2em;
-      max-width: 600px;
-      margin: auto;
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
-      color: #f7d794;
-    }
+    .hero img.active { opacity: 1; }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-content h1 { font-size: 3em; margin-bottom: 10px; text-shadow: 2px 2px 6px rgba(0,0,0,0.5); }
+    .hero-content p { font-size: 1.2em; max-width: 600px; margin: auto; text-shadow: 1px 1px 5px rgba(0,0,0,0.6); color: #f7d794; }
 
     /* SECCIONES */
-    section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
+    section { padding: 40px 20px; max-width: 1000px; margin: auto; }
+    h2 { text-align: center; margin-bottom: 30px; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
     .card {
       background-color: #fff;
       border-radius: 12px;
@@ -126,110 +68,93 @@
       padding: 20px;
       text-align: center;
     }
+    .card img { width: 100%; border-radius: 12px; }
 
-    .card img {
-      width: 100%;
-      border-radius: 12px;
-    }
-
-    footer {
-      background-color: #4a3c2a;
-      color: #fff8f0;
-      text-align: center;
-      padding: 20px;
-      margin-top: 50px;
-    }
-
-    footer a {
-      color: #f7d794;
-      text-decoration: none;
-    }
+    /* FOOTER */
+    footer { background-color: #4a3c2a; color: #fff8f0; text-align: center; padding: 20px; margin-top: 50px; }
+    footer a { color: #f7d794; text-decoration: none; }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">
-      <img src="LOGO-removebg-preview.png" alt="Logo Baguettería">
-      <h2>Baguettería</h2>
+<header>
+  <div class="logo">
+    <img src="LOGO-removebg-preview.png" alt="Logo Baguettería">
+    <h2>Baguettería</h2>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="us01.html">Catálogo</a></li>
+      <li><a href="us02.html">Filtrar</a></li>
+      <li><a href="us03.html">Buscar</a></li>
+      <li><a href="us04.html">Carrito</a></li>
+      <li><a href="us05.html">Checkout</a></li>
+      <li><a href="us07.html">Panel Operativo</a></li>
+      <li><a href="us08.html">Seguimiento Pedido</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="hero">
+  <img src="francsua.jpg" class="active" alt="Baguette 1">
+  <img src="nrmal.jpg" alt="Baguette 2">
+  <img src="sbre.jpg" alt="Baguette 3">
+
+  <div class="hero-content">
+    <h1>Bienvenido a la Baguettería</h1>
+    <p>Descubre el sabor del pan recién horneado, hecho con amor y tradición francesa. 🥖✨</p>
+  </div>
+</div>
+
+<section>
+  <h2>Nuestras Especialidades</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="2022-02_Baguette Española_1.png" alt="Baguette clásica">
+      <h3>Baguette Clásica</h3>
+      <p>Hecha con masa madre y horneada cada mañana.</p>
     </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="us01.html">Catálogo</a></li>
-        <li><a href="us04.html">Carrito</a></li>
-        <li><a href="us05.html">Checkout</a></li>
-        <li><a href="us07.html">Panel Operativo</a></li>
-        <li><a href="us10.html">Promociones</a></li>
-        <li><a href="us11.html">Reseñas</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <div class="hero">
-    <img src="francsua.jpg" class="active" alt="Baguette 1">
-    <img src="nrmal.jpg" alt="Baguette 2">
-    <img src="sbre.jpg" alt="Baguette 3">
-
-    <div class="hero-content">
-      <h1>Bienvenido a la Baguettería</h1>
-      <p>Descubre el sabor del pan recién horneado, hecho con amor y tradición francesa. 🥖✨</p>
+    <div class="card">
+      <img src="INTEGRAL.png" alt="Baguette integral">
+      <h3>Integral de Trigo</h3>
+      <p>Una opción saludable con el mismo sabor artesanal.</p>
+    </div>
+    <div class="card">
+      <img src="RELLENA-removebg-preview.png" alt="Baguette rellena">
+      <h3>Baguette Rellena</h3>
+      <p>Sabores irresistibles: jamón y queso, pollo o vegetariana.</p>
     </div>
   </div>
+</section>
 
-  <section>
-    <h2>Nuestras Especialidades</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="2022-02_Baguette Española_1.png" alt="Baguette clásica">
-        <h3>Baguette Clásica</h3>
-        <p>Hecha con masa madre y horneada cada mañana.</p>
-        <p>Precio: CLP 2.500</p>
-        <button onclick="window.location.href='us01.html'">Ver Catálogo</button>
-      </div>
-      <div class="card">
-        <img src="INTEGRAL.png" alt="Baguette integral">
-        <h3>Integral de Trigo</h3>
-        <p>Una opción saludable con el mismo sabor artesanal.</p>
-        <p>Precio: CLP 3.000</p>
-        <button onclick="window.location.href='us01.html'">Ver Catálogo</button>
-      </div>
-      <div class="card">
-        <img src="RELLENA-removebg-preview.png" alt="Baguette rellena">
-        <h3>Baguette Rellena</h3>
-        <p>Sabores irresistibles: jamón y queso, pollo o vegetariana.</p>
-        <p>Precio: CLP 3.500</p>
-        <button onclick="window.location.href='us01.html'">Ver Catálogo</button>
-      </div>
-    </div>
-  </section>
+<section>
+  <h2>¿Qué puedes hacer aquí?</h2>
+  <ul>
+    <li>🛒 <strong>Explorar baguettes</strong> y filtrar por tipo (US01–US03).</li>
+    <li>💳 <strong>Comprar fácilmente</strong> con carrito y pago seguro (US04–US06).</li>
+    <li>🚚 <strong>Ver disponibilidad</strong> y estado de tu pedido (US07–US09).</li>
+    <li>🎁 <strong>Recibir promociones</strong> (US10).</li>
+    <li>⭐ <strong>Dejar reseñas</strong> y conocer la experiencia de otros clientes (US11).</li>
+  </ul>
+</section>
 
-  <section>
-    <h2>¿Qué puedes hacer aquí?</h2>
-    <ul>
-      <li>🛒 <strong>Explorar baguettes</strong> y filtrar por tipo (US01–US03).</li>
-      <li>💳 <strong>Comprar fácilmente</strong> con carrito y pago seguro (US04–US06).</li>
-      <li>🚚 <strong>Ver disponibilidad</strong> y estado de tu pedido (US07–US09).</li>
-      <li>🎁 <strong>Recibir promociones</strong> (US10).</li>
-      <li>⭐ <strong>Dejar reseñas</strong> y conocer la experiencia de otros clientes (US11).</li>
-    </ul>
-  </section>
+<footer>
+  <p>© 2025 Baguettería Artesanal | Hecho con 🥖 y 💛</p>
+  <p><a href="contacto.html">Contáctanos</a> | <a href="#">Política de Privacidad</a></p>
+</footer>
 
-  <footer>
-    <p>© 2025 Baguettería Artesanal | Hecho con 🥖 y 💛</p>
-    <p><a href="contacto.html">Contáctanos</a> | <a href="#">Política de Privacidad</a></p>
-  </footer>
+<script>
+  const images = document.querySelectorAll('.hero img');
+  let index = 0;
 
-  <script>
-    const images = document.querySelectorAll('.hero img');
-    let index = 0;
-    setInterval(() => {
-      images[index].classList.remove('active');
-      index = (index + 1) % images.length;
-      images[index].classList.add('active');
-    }, 5000);
-  </script>
+  setInterval(() => {
+    images[index].classList.remove('active');
+    index = (index + 1) % images.length;
+    images[index].classList.add('active');
+  }, 5000);
+</script>
 
 </body>
 </html>
