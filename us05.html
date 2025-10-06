@@ -12,7 +12,6 @@
       color: #4a3c2a;
     }
 
-    /* HEADER / NAVBAR */
     header {
       background-color: #f7d794;
       color: #4a3c2a;
@@ -52,7 +51,6 @@
       color: #d35400;
     }
 
-    /* CHECKOUT FORM */
     section {
       max-width: 800px;
       margin: 40px auto;
@@ -67,27 +65,40 @@
       margin-bottom: 30px;
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    label {
-      font-weight: bold;
-    }
-
-    input, select {
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
+    table {
       width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f7d794;
     }
 
     .total {
-      font-size: 1.3em;
       text-align: right;
-      margin-top: 10px;
+      font-size: 1.3em;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      width: 100%;
     }
 
     .pay-btn {
@@ -98,6 +109,8 @@
       border: none;
       border-radius: 20px;
       cursor: pointer;
+      text-align: center;
+      font-size: 1em;
       transition: 0.3s;
     }
 
@@ -106,7 +119,6 @@
       color: #4a3c2a;
     }
 
-    /* FOOTER */
     footer {
       background-color: #4a3c2a;
       color: #fff8f0;
@@ -139,54 +151,48 @@
 </header>
 
 <section>
-  <h2>Checkout</h2>
-  <form id="checkoutForm">
-    <!-- Información de envío -->
-    <div>
-      <label for="nombre">Nombre Completo</label>
-      <input type="text" id="nombre" required placeholder="Juan Pérez">
-    </div>
-    <div>
-      <label for="direccion">Dirección de envío</label>
-      <input type="text" id="direccion" required placeholder="Calle Falsa 123, Ciudad">
-    </div>
-    <div>
-      <label for="zona">Zona de envío</label>
-      <select id="zona" required>
-        <option value="" disabled selected>Selecciona tu zona</option>
-        <option value="centro">Centro - $2.00</option>
-        <option value="norte">Norte - $3.00</option>
-        <option value="sur">Sur - $4.00</option>
-      </select>
-    </div>
-    <div>
-      <label for="horario">Horario de entrega</label>
-      <select id="horario" required>
-        <option value="" disabled selected>Selecciona un horario</option>
-        <option value="mañana">Mañana (8:00-12:00)</option>
-        <option value="tarde">Tarde (12:00-18:00)</option>
-        <option value="noche">Noche (18:00-21:00)</option>
-      </select>
-    </div>
+  <h2>Resumen de Compra</h2>
 
-    <!-- Pago -->
-    <div>
-      <label for="metodo">Método de pago</label>
-      <select id="metodo" required>
-        <option value="" disabled selected>Selecciona un método</option>
-        <option value="tarjeta">Tarjeta de crédito/débito</option>
-        <option value="paypal">PayPal</option>
-        <option value="efectivo">Efectivo contra entrega</option>
-      </select>
-    </div>
-    <div>
-      <label for="datosPago">Datos de pago</label>
-      <input type="text" id="datosPago" placeholder="Número de tarjeta o usuario PayPal">
-    </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio Unitario</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Baguette Clásica</td>
+        <td>1</td>
+        <td>CLP 2.500</td>
+        <td>CLP 2.500</td>
+      </tr>
+      <tr>
+        <td>Baguette Integral</td>
+        <td>1</td>
+        <td>CLP 3.000</td>
+        <td>CLP 3.000</td>
+      </tr>
+      <tr>
+        <td>Baguette Rellena</td>
+        <td>1</td>
+        <td>CLP 3.500</td>
+        <td>CLP 3.500</td>
+      </tr>
+    </tbody>
+  </table>
 
-    <div class="total" id="total">Total: $12.50 + envío</div>
+  <div class="total">Total: CLP 9.000</div>
 
-    <button class="pay-btn" type="submit">Confirmar Pedido</button>
+  <h2>Datos de envío</h2>
+  <form>
+    <input type="text" placeholder="Nombre completo" required>
+    <input type="email" placeholder="Correo electrónico" required>
+    <input type="text" placeholder="Dirección de envío" required>
+    <textarea placeholder="Notas adicionales (opcional)"></textarea>
+    <button type="submit" class="pay-btn">Pagar CLP 9.000</button>
   </form>
 </section>
 
@@ -194,31 +200,6 @@
   <p>© 2025 Baguettería Artesanal | Hecho con 🥖 y 💛</p>
   <p><a href="contacto.html">Contáctanos</a> | <a href="#">Política de Privacidad</a></p>
 </footer>
-
-<script>
-  const form = document.getElementById('checkoutForm');
-  const zona = document.getElementById('zona');
-  const totalEl = document.getElementById('total');
-  let subtotal = 12.50; // ejemplo de subtotal de carrito
-
-  function actualizarTotal() {
-    let envio = 0;
-    if(zona.value === 'centro') envio = 2;
-    if(zona.value === 'norte') envio = 3;
-    if(zona.value === 'sur') envio = 4;
-
-    totalEl.textContent = 'Total: $' + (subtotal + envio).toFixed(2) + ' (incluye envío)';
-  }
-
-  zona.addEventListener('change', actualizarTotal);
-
-  form.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    alert('Pedido confirmado. ¡Gracias por tu compra! 🥖');
-    form.reset();
-    totalEl.textContent = 'Total: $' + subtotal.toFixed(2) + ' + envío';
-  });
-</script>
 
 </body>
 </html>

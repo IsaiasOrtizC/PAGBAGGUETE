@@ -12,7 +12,6 @@
       color: #4a3c2a;
     }
 
-    /* HEADER / NAVBAR */
     header {
       background-color: #f7d794;
       color: #4a3c2a;
@@ -52,7 +51,6 @@
       color: #d35400;
     }
 
-    /* CARRITO */
     section {
       max-width: 900px;
       margin: 40px auto;
@@ -109,7 +107,6 @@
       color: #4a3c2a;
     }
 
-    /* FOOTER */
     footer {
       background-color: #4a3c2a;
       color: #fff8f0;
@@ -165,27 +162,26 @@
       <tr>
         <td>Baguette Clásica</td>
         <td><input type="number" class="qty-input" value="1" min="1"></td>
-        <td>$5.00</td>
-        <td>$5.00</td>
+        <td>CLP 2.500</td>
+        <td>CLP 2.500</td>
       </tr>
       <tr>
         <td>Baguette Integral</td>
         <td><input type="number" class="qty-input" value="1" min="1"></td>
-        <td>$6.00</td>
-        <td>$6.00</td>
+        <td>CLP 3.000</td>
+        <td>CLP 3.000</td>
       </tr>
       <tr>
         <td>Baguette Rellena</td>
         <td><input type="number" class="qty-input" value="1" min="1"></td>
-        <td>$7.00</td>
-        <td>$7.00</td>
+        <td>CLP 3.500</td>
+        <td>CLP 3.500</td>
       </tr>
     </tbody>
   </table>
 
-  <div class="total" id="total">Total: $18.00</div>
+  <div class="total" id="total">Total: CLP 9.000</div>
 
-  <!-- Botón Finalizar Compra -->
   <a href="us05.html" class="pay-btn">Finalizar Compra</a>
 </section>
 
@@ -203,11 +199,12 @@
     const rows = document.querySelectorAll('#cart-items tr');
     rows.forEach((row, i) => {
       const qty = parseInt(qtyInputs[i].value);
-      const price = parseFloat(row.cells[2].textContent.replace('$',''));
-      row.cells[3].textContent = '$' + (qty * price).toFixed(2);
-      total += qty * price;
+      const price = parseInt(row.cells[2].textContent.replace('CLP ','').replace('.',''));
+      const subtotal = qty * price;
+      row.cells[3].textContent = 'CLP ' + subtotal.toLocaleString('es-CL');
+      total += subtotal;
     });
-    totalEl.textContent = 'Total: $' + total.toFixed(2);
+    totalEl.textContent = 'Total: CLP ' + total.toLocaleString('es-CL');
   }
 
   qtyInputs.forEach(input => {
