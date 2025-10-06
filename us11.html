@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reseñas - Baguettería Artesanal</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #fff8f0;
+      color: #4a3c2a;
+    }
+
+    /* HEADER / NAVBAR */
+    header {
+      background-color: #f7d794;
+      color: #4a3c2a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    header .logo img {
+      width: 50px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #4a3c2a;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #d35400;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      width: 100%;
+    }
+
+    .submit-btn {
+      padding: 15px;
+      background-color: #d35400;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      text-align: center;
+      font-size: 1em;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #f7d794;
+      color: #4a3c2a;
+    }
+
+    .reviews {
+      margin-top: 40px;
+    }
+
+    .review {
+      border-bottom: 1px solid #ddd;
+      padding: 15px 0;
+    }
+
+    .review h4 {
+      margin: 0 0 5px 0;
+      color: #d35400;
+    }
+
+    .review p {
+      margin: 0;
+    }
+
+    footer {
+      background-color: #4a3c2a;
+      color: #fff8f0;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+
+    footer a {
+      color: #f7d794;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="LOGO-removebg-preview.png" alt="Logo Baguettería">
+    <h2>Baguettería</h2>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="us01.html">Catálogo</a></li>
+      <li><a href="us03.html">Detalle</a></li>
+      <li><a href="us04.html">Carrito</a></li>
+      <li><a href="us05.html">Checkout</a></li>
+      <li><a href="us07.html">Panel Operativo</a></li>
+      <li><a href="us08.html">Seguimiento Pedido</a></li>
+      <li><a href="us10.html">Promociones</a></li>
+      <li><a href="us11.html">Reseñas</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section>
+  <h2>Deja tu Reseña</h2>
+  <form id="reviewForm">
+    <input type="text" placeholder="Nombre" required>
+    <input type="email" placeholder="Correo electrónico" required>
+    <textarea placeholder="Escribe tu reseña..." required></textarea>
+    <button type="submit" class="submit-btn">Enviar Reseña</button>
+  </form>
+
+  <div class="reviews" id="reviewsList">
+    <h2>Reseñas Recientes</h2>
+    <div class="review">
+      <h4>Ana Pérez</h4>
+      <p>Excelente baguette, muy fresco y delicioso. ¡Volveré pronto!</p>
+    </div>
+    <div class="review">
+      <h4>Carlos Gómez</h4>
+      <p>Me encantó el servicio y la atención. Recomendado 100%.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Baguettería Artesanal | Hecho con 🥖 y 💛</p>
+  <p><a href="contacto.html">Contáctanos</a> | <a href="#">Política de Privacidad</a></p>
+</footer>
+
+<script>
+  const form = document.getElementById('reviewForm');
+  const reviewsList = document.getElementById('reviewsList');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = form.querySelector('input[type="text"]').value;
+    const email = form.querySelector('input[type="email"]').value;
+    const comment = form.querySelector('textarea').value;
+
+    const reviewDiv = document.createElement('div');
+    reviewDiv.classList.add('review');
+    reviewDiv.innerHTML = `<h4>${name}</h4><p>${comment}</p>`;
+    reviewsList.appendChild(reviewDiv);
+
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
