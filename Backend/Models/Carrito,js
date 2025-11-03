@@ -1,0 +1,8 @@
+const mongoose = require('mongoose');
+
+const CarritoSchema = new mongoose.Schema({
+    idUsuario: { type: mongoose.Schema.Types.ObjectId, ref: 'Usuario', required: true },
+    total: { type: Number, default: 0 }
+}, { timestamps: true });
+
+module.exports = mongoose.model('Carrito', CarritoSchema);
