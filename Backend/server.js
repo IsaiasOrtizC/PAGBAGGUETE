@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const result = dotenv.config();
-const dotenv = require('dotenv');
+
 
 if (result.error) {
     console.error('❌ Error cargando .env:', result.error);
