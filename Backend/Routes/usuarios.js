@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Usuario = require('../Models/Usuario');
 
-// GET todos los usuarios
 router.get('/', async (req, res) => {
     try {
         const usuarios = await Usuario.find();
@@ -12,7 +11,6 @@ router.get('/', async (req, res) => {
     }
 });
 
-// GET un usuario por ID
 router.get('/:id', async (req, res) => {
     try {
         const usuario = await Usuario.findById(req.params.id);
@@ -23,7 +21,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// POST crear usuario
+
 router.post('/', async (req, res) => {
     const usuario = new Usuario({
         nombre: req.body.nombre,
@@ -40,7 +38,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-// PUT actualizar usuario
+
 router.put('/:id', async (req, res) => {
     try {
         const usuario = await Usuario.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -50,7 +48,6 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-// DELETE eliminar usuario
 router.delete('/:id', async (req, res) => {
     try {
         await Usuario.findByIdAndDelete(req.params.id);

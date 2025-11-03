@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const PromociónSchema = new mongoose.Schema({
     título: { type: String, required: true },
     descripcion: { type: String },
-    descuento: { type: Number, required: true }, // porcentaje
+    descuento: { type: Number, required: true }, 
     fechaInicio: { type: Date, required: true },
     fechaFin: { type: Date, required: true },
     baguettes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Baguette' }] // Relación N a N

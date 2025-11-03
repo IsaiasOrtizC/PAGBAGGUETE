@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const Baguette = require('../Models/Baguette'); // Modelo que crearás
+const Baguette = require('../Models/Baguette'); 
 
-// Obtener todos los baguettes
+
 router.get('/', async (req, res) => {
     try {
         const baguettes = await Baguette.find();
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Crear baguette
+
 router.post('/', async (req, res) => {
     try {
         const nuevoBaguette = new Baguette(req.body);
