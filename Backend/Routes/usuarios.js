@@ -1,8 +1,26 @@
-const router = require('express').Router();
-const { crearUsuario, obtenerUsuarios } = require('../Controllers/usuarios');
+const express = require('express');
+const router = express.Router();
+const Usuario = require('../Models/Usuario'); // Modelo que crearás
 
-router.post('/', crearUsuario);   // Crear usuario
-router.get('/', obtenerUsuarios); // Listar usuarios
+// Obtener todos los usuarios
+router.get('/', async (req, res) => {
+    try {
+        const usuarios = await Usuario.find();
+        res.json(usuarios);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Crear usuario
+router.post('/', async (req, res) => {
+    try {
+        const nuevoUsuario = new Usuario(req.body);
+        const usuarioGuardado = await nuevoUsuario.save();
+        res.status(201).json(usuarioGuardado);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
 module.exports = router;
-
