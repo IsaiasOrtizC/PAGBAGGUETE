@@ -4,15 +4,21 @@
   "description": "Backend para la Baguettería Online",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
+    "start": "node Backend/server.js",
+    "dev": "nodemon Backend/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/IsaiasOrtizC/PAGBAGGUETE.git"
   },
-  "keywords": ["backend", "nodejs", "express", "mongodb", "baguetteria"],
+  "keywords": [
+    "backend",
+    "nodejs",
+    "express",
+    "mongodb",
+    "baguetteria"
+  ],
   "author": "Isaias Ortiz Castro",
   "license": "ISC",
   "bugs": {
